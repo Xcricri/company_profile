@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
@@ -11,7 +13,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        // Mengambil data user dan mengurutkan yang terbaru
+        $users = User::latest()->get();
+        // Mengirim data user ke view
+        return view('users.index', compact('users'));
     }
 
     /**
