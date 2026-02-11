@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Portofolio extends Model
 {
-    //
+    protected $guarded = ['id'];
+
+    public function images(){
+        return $this->hasMany(PortofolioImage::class); 
+    }
 }
